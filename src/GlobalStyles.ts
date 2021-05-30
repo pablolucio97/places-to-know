@@ -14,12 +14,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body{
-        width: 100vw;
+        width: 100%;
         height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
         overflow: hidden;
         background: var(--white);
     }
@@ -31,6 +27,20 @@ export const GlobalStyle = createGlobalStyle`
         justify-content: space-evenly;
         align-items: center;
         background: var(--green)
+    }
+
+    .main-container{
+        min-width: 1280px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .cards-container{
+        display: flex;
+        justify-content: flex-start;
+        width: 1280px;
+        margin:  auto;
+        padding: 1.6rem;
     }
 
 `
