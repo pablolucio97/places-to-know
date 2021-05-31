@@ -9,22 +9,25 @@ import Input from './components/Input'
 import Button from './components/Button'
 import Card from './components/Card'
 
-import countryTypes from './types/countriesTypes'
-import {postCard} from './utils/postCards'
+import countryRequestTypes from './types/countriesTypes'
+import countryCardsTypes from './types/countryCardsTypes'
+import {postCard, deleteCard, editCard} from './utils/cardsControl'
 
 
 export default function App() {
 
 
   const [countriesList, setCountriesList] = useState<string[]>()
+  const [countriesCards, setCountriesCards] = useState<countryCardsTypes[]>()
   const [selectedCountry, setSelectedCountry] = useState('')
+  const [countryId, setCountryId] = useState(0)
   const [currentCountryFlag, setCurrentCountryFlag] = useState('')
   const [local, setLocal] = useState('')
   const [goalDate, setGoalDate] = useState('')
 
 
   useEffect(() => {
-    axios.get<countryTypes[]>('https://restcountries.eu/rest/v2/all')
+    axios.get<countryRequestTypes[]>('https://restcountries.eu/rest/v2/all')
       .then(response => {
         const list = response.data.map(country => country.name)
         setCountriesList(list)
@@ -40,6 +43,15 @@ export default function App() {
       setCurrentCountryFlag(flag)
     })
   }, [selectedCountry])
+
+
+  useEffect(() => {
+    axios.get<countryCardsTypes[]>(`http://localhost:3333/places`)
+    .then(response => {
+    const list = response.data.map(card => card)
+    setCountriesCards(list)
+    })
+  }, [countriesCards])
 
 
   return (
@@ -74,18 +86,25 @@ export default function App() {
         </form>
       </main>
       <div className="cards-container">
-        <Card 
-          local={local}
-          metaDate={goalDate}
-          countryName={selectedCountry}
-          countryFlag={currentCountryFlag}
+       {countriesCards?.map(card => (
+          <Card
+          id={card.id}
+          local={card.local}
+          goalDate={card.goalDate}
+          countryName={card.countryName}
+          countryFlag={card.countryFlag}
+          editCard={() => {editCard(card.id, local, goalDate, card.countryFlag)}}
+          deleteCard={() => {deleteCard(card.id)}}
         />
+       ))}
         <button 
           onClick={() => 
           postCard(
+          countryId,
           selectedCountry,
-          goalDate,
-          local
+          currentCountryFlag,
+          local,
+          goalDate
           )}>Test post</button>
       </div>
     </>

@@ -1,6 +1,6 @@
-type countryTypes = {
+type countryRequestTypes = {
     name: string,
     flag: string
 }
 
-export default countryTypes;
+export default countryRequestTypes;

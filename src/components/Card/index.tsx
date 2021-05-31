@@ -14,14 +14,16 @@ import {
 
 import {MdClose, MdEdit} from 'react-icons/md'
 
-type CardProps = {
-    local: string;
-    metaDate: string;
-    countryName: string;
-    countryFlag?: string;
-}
+import countryCardTypes from '../../types/countryCardsTypes'
 
-const Card = ({local, countryName, countryFlag, metaDate} : CardProps) => {
+const Card = ({
+    local,
+    countryName,
+    countryFlag,
+    goalDate,
+    editCard,
+    deleteCard
+} : countryCardTypes) => {
     return (
         <>
             <CardContainer>
@@ -31,14 +33,18 @@ const Card = ({local, countryName, countryFlag, metaDate} : CardProps) => {
                         <CountryTitle>{countryName}</CountryTitle>
                     </CountryInfoContainer>
                     <ButtonsContainer>
-                        <EditButton><MdEdit size={18} color='#333'/></EditButton>
-                        <CloseButton><MdClose size={18} color='#333'/></CloseButton>
+                        <EditButton onClick={editCard}>
+                            <MdEdit size={18} color='#333'/>
+                        </EditButton>
+                        <CloseButton onClick={deleteCard}>
+                            <MdClose size={18} color='#333'/>
+                        </CloseButton>
                     </ButtonsContainer>
                 </TopContainer>
                 <Divider />
                 <BottomContainer>
                     <Text>Local: {local}</Text>
-                    <Text>Meta: {metaDate}</Text>
+                    <Text>Meta: {goalDate}</Text>
                 </BottomContainer>
             </CardContainer>
         </>
