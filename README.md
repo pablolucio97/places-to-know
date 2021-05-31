@@ -11,7 +11,7 @@ You can access the layout  [clicking here.](https://www.figma.com/file/IC0xt3K3X
 
 - [x] User can see the list of available countries to visit through the select input.
 - [ ] The user's current places to know list should be displayed.
-- [ ] User can add at any time a new place to visit.
+- [x] User can add at any time a new place to visit.
 - [ ] User can at any time edit your place or even delete this.
 - [ ] Forms should reset on user add a new place to visit.
 

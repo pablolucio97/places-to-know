@@ -1,4 +1,5 @@
 
+import { useState, useEffect, ChangeEvent } from 'react'
 import { GlobalStyle } from './GlobalStyles'
 import InputMask from 'react-input-mask'
 import axios from 'axios'
@@ -9,8 +10,7 @@ import Button from './components/Button'
 import Card from './components/Card'
 
 import countryTypes from './types/countriesTypes'
-import { useState, useEffect } from 'react'
-
+import {postCard} from './utils/postCards'
 
 
 export default function App() {
@@ -18,6 +18,10 @@ export default function App() {
 
   const [countriesList, setCountriesList] = useState<string[]>()
   const [selectedCountry, setSelectedCountry] = useState('')
+  const [currentCountryFlag, setCurrentCountryFlag] = useState('')
+  const [local, setLocal] = useState('')
+  const [goalDate, setGoalDate] = useState('')
+
 
   useEffect(() => {
     axios.get<countryTypes[]>('https://restcountries.eu/rest/v2/all')
@@ -25,7 +29,18 @@ export default function App() {
         const list = response.data.map(country => country.name)
         setCountriesList(list)
       })
-  }, [])
+  }, [selectedCountry])
+
+
+  useEffect(() => {
+    axios.get(`https://restcountries.eu/rest/v2/name/${selectedCountry}?fullText=true`)
+    .then( response => {
+      const {flag} = response.data[0]
+      console.log(flag)
+      setCurrentCountryFlag(flag)
+    })
+  }, [selectedCountry])
+
 
   return (
     <>
@@ -33,6 +48,7 @@ export default function App() {
       </GlobalStyle>
       <Header />
       <main>
+        <form onSubmit={(e: ChangeEvent<HTMLFormElement>) => {e.target.reset()}}>
         <div className="main-container">
           <select name="find-country" onChange={e => setSelectedCountry(e.target.value)}>
             <option value={0}>Procurar por um país</option>
@@ -40,7 +56,9 @@ export default function App() {
               <option value={country} key={index}>{country}</option>
             ))}
           </select>
-          <Input />
+          <Input 
+            editLocal={e => setLocal(e.target.value)}
+          />
           <InputMask
             style={{
               borderRadius: 7,
@@ -49,15 +67,26 @@ export default function App() {
             }}
             mask='99/2029'
             placeholder='mês/ano'
+            onChange={e => setGoalDate(e.target.value)}
           />
           <Button />
         </div>
+        </form>
       </main>
       <div className="cards-container">
-        <Card />
-        <Card />
-        <Card />
-        <p>{selectedCountry}</p>
+        <Card 
+          local={local}
+          metaDate={goalDate}
+          countryName={selectedCountry}
+          countryFlag={currentCountryFlag}
+        />
+        <button 
+          onClick={() => 
+          postCard(
+          selectedCountry,
+          goalDate,
+          local
+          )}>Test post</button>
       </div>
     </>
   )

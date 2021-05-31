@@ -13,16 +13,22 @@ import {
 } from './styles'
 
 import {MdClose, MdEdit} from 'react-icons/md'
-import flag from '../../assets/flag.svg'
 
-export default function Card() {
+type CardProps = {
+    local: string;
+    metaDate: string;
+    countryName: string;
+    countryFlag?: string;
+}
+
+const Card = ({local, countryName, countryFlag, metaDate} : CardProps) => {
     return (
         <>
             <CardContainer>
                 <TopContainer>
                     <CountryInfoContainer>
-                        <ImageFlag src={flag} />
-                        <CountryTitle>BRAZIL</CountryTitle>
+                        <ImageFlag src={countryFlag} />
+                        <CountryTitle>{countryName}</CountryTitle>
                     </CountryInfoContainer>
                     <ButtonsContainer>
                         <EditButton><MdEdit size={18} color='#333'/></EditButton>
@@ -31,11 +37,12 @@ export default function Card() {
                 </TopContainer>
                 <Divider />
                 <BottomContainer>
-                    <Text>Local:</Text>
-                    <Text>Meta:</Text>
+                    <Text>Local: {local}</Text>
+                    <Text>Meta: {metaDate}</Text>
                 </BottomContainer>
             </CardContainer>
         </>
     )
 }
 
+export default Card
