@@ -15,8 +15,9 @@ export const GlobalStyle = createGlobalStyle`
 
     body{
         width: 100%;
-        height: 100vh;
-        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        overflow-x: hidden;
         background: var(--white);
     }
 
@@ -37,10 +38,12 @@ export const GlobalStyle = createGlobalStyle`
 
     .cards-container{
         display: flex;
-        justify-content: flex-start;
-        width: 1280px;
-        margin:  auto;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        width: 100%;
         padding: 1.6rem;
+        margin: 0 auto;
     }
 
 `
