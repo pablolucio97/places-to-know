@@ -5,11 +5,11 @@ edit your trip goals or even delete this schedule.
 
 ## Layout
 
-You can access the layout  [clicking here](https://www.figma.com/file/IC0xt3K3X21rLEfLRQ3mpl/Lugares-que-quero-conhecer?node-id=16%3A456)
+You can access the layout  [clicking here.](https://www.figma.com/file/IC0xt3K3X21rLEfLRQ3mpl/Lugares-que-quero-conhecer?node-id=16%3A456)
 
-## Functional requierements 
+## Functional requirements 
 
-- [ ] User can see the list of available countries to visit through the select input.
+- [x] User can see the list of available countries to visit through the select input.
 - [ ] The user's current places to know list should be displayed.
 - [ ] User can add at any time a new place to visit.
 - [ ] User can at any time edit your place or even delete this.
