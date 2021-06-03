@@ -3,7 +3,7 @@ import { ModalDeleteTypes } from '../../types/modalDeleteTypes'
 import Modal from 'react-modal'
 
 
-const ModalDelete = ({ closeModalDelete, deleteCard, modalStatus }: ModalDeleteTypes) => {
+const ModalDelete = ({ closeModalDelete, deleteCard, modalStatus}: ModalDeleteTypes) => {
 
     return (
         <>

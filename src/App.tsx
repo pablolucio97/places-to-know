@@ -25,7 +25,6 @@ export default function App() {
   const [countriesList, setCountriesList] = useState<string[]>()
   const [countriesCards, setCountriesCards] = useState<countryCardsTypes[]>()
   const [selectedCountry, setSelectedCountry] = useState('')
-  const [countryId,] = useState(0)
   const [currentCountryFlag, setCurrentCountryFlag] = useState('')
   const [local, setLocal] = useState('')
   const [goalDate, setGoalDate] = useState('')
@@ -62,16 +61,13 @@ export default function App() {
   }, [requestCount])
 
 
-
   return (
     <>
-      <GlobalStyle>
-      </GlobalStyle>
+      <GlobalStyle />
       <Header />
       <main>
         <form ref={formRef} onSubmit={(e: ChangeEvent<HTMLFormElement>) => {
           postCard(
-            countryId,
             selectedCountry,
             currentCountryFlag,
             local,
@@ -81,7 +77,6 @@ export default function App() {
           formRef.current?.reset()
           setRequestCount(requestCount + 1)
         }}>
-
           <div className="main-container">
             <select name="find-country" onChange={e => setSelectedCountry(e.target.value)}>
               <option value={0}>Procurar por um país</option>
@@ -120,7 +115,6 @@ export default function App() {
         <ToastContainer />
       </main>
       <div className="cards-container">
-
         {
           showModalDelete && countriesCards?.map(card => (
             <ModalDelete
@@ -134,7 +128,6 @@ export default function App() {
             />
           ))
         }
-
         {
           showModalEdit && countriesCards?.map(card => (
             <ModalEdit
@@ -165,21 +158,10 @@ export default function App() {
               goalDate={card.goalDate}
               countryName={card.countryName}
               countryFlag={card.countryFlag}
-              editCard={() => {
-                editCard(
-                  card.id,
-                  local,
-                  goalDate,
-                  card.countryFlag,
-                  card.countryName
-                )
-              }}
-              deleteCard={() => { deleteCard(card.id) }}
               openModalEdit={() => { setShowModalEdit(true) }}
               openModalDelete={() => { setShowModalDelete(true) }}
             />
           ))
-
         }
       </div>
     </>

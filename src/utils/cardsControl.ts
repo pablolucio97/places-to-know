@@ -2,7 +2,6 @@ import axios from "axios"
 import { toast } from "react-toastify";
 
   export const  postCard = async (
-    cardId: number,
     countryName: string,
     countryFlag: string,
     local: string,
@@ -10,17 +9,12 @@ import { toast } from "react-toastify";
   ) => {
     await axios
       .post("http://localhost:3333/places", {
-        cardId: cardId,
         countryName: countryName,
         countryFlag: countryFlag,
         local: local,
         goalDate: goalDate,
       })
-      .then(() => console.log("ok"))
-      .catch((error) => {
-        throw new Error(error);
-      });
-
+   
       toast.success('Você adicionou um novo lugar', {
         position: "bottom-right",
         autoClose: 3000,

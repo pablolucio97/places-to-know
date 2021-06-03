@@ -17,18 +17,16 @@ import {MdClose, MdEdit} from 'react-icons/md'
 import countryCardTypes from '../../types/countryCardsTypes'
 
 const Card = ({
+    id,
     local,
     countryName,
     countryFlag,
     goalDate,
-    editCard,
-    deleteCard,
     openModalDelete,
     openModalEdit
 } : countryCardTypes) => {
     return (
-        <>
-            <CardContainer>
+            <CardContainer key={id}>
                 <TopContainer>
                     <CountryInfoContainer>
                         <ImageFlag src={countryFlag} />
@@ -49,7 +47,6 @@ const Card = ({
                     <Text>Meta: {goalDate}</Text>
                 </BottomContainer>
             </CardContainer>
-        </>
     )
 }
 

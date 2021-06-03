@@ -10,10 +10,10 @@ You can access the layout  [clicking here.](https://www.figma.com/file/IC0xt3K3X
 ## Functional requirements 
 
 - [x] User can see the list of available countries to visit through the select input.
-- [ ] The user's current places to know list should be displayed.
+- [x] The user's current places to know list should be displayed.
 - [x] User can add at any time a new place to visit.
-- [ ] User can at any time edit your place or even delete this.
-- [ ] Forms should reset on user add a new place to visit.
+- [x] User can at any time edit your place or even delete this.
+- [x] Forms should reset on user add a new place to visit.
 
 
 ## How to execute this project:
