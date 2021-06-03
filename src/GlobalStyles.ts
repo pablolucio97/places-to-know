@@ -15,8 +15,6 @@ export const GlobalStyle = createGlobalStyle`
 
     body{
         width: 100%;
-        display: flex;
-        justify-content: center;
         overflow-x: hidden;
         background: var(--white);
     }
@@ -25,23 +23,23 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 220px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
-        background: var(--green)
+        background: var(--green);
     }
 
     .main-container{
-        min-width: 1280px;
+        width: 100%;
         display: flex;
         justify-content: space-evenly;
     }
 
     .cards-container{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
         flex-wrap: wrap;
-        width: 100%;
+        max-width: 1200px;
         padding: 1.6rem;
         margin: 0 auto;
     }
@@ -53,5 +51,32 @@ export const GlobalStyle = createGlobalStyle`
         border-radius: 7px;
         border: none;
     }
+    
 
+    @media(max-width: 1080px){
+        .main-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            height: 32vh;
+        }
+
+        main{
+            padding: 2rem;
+            height: 32vh;
+        }
+    }
+        .cards-container{
+            display: flex;
+            justify-content: flex-start;
+        }
+
+    @media(max-width: 900px){
+        .cards-container{
+            display: flex;
+            justify-content: center;
+        }
+
+    }
 `;

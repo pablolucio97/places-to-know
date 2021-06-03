@@ -22,7 +22,9 @@ const Card = ({
     countryFlag,
     goalDate,
     editCard,
-    deleteCard
+    deleteCard,
+    openModalDelete,
+    openModalEdit
 } : countryCardTypes) => {
     return (
         <>
@@ -33,10 +35,10 @@ const Card = ({
                         <CountryTitle>{countryName}</CountryTitle>
                     </CountryInfoContainer>
                     <ButtonsContainer>
-                        <EditButton onClick={editCard}>
+                        <EditButton onClick={openModalEdit}>
                             <MdEdit size={18} color='#333'/>
                         </EditButton>
-                        <CloseButton onClick={deleteCard}>
+                        <CloseButton onClick={openModalDelete}>
                             <MdClose size={18} color='#333'/>
                         </CloseButton>
                     </ButtonsContainer>

@@ -6,6 +6,8 @@ type countryCardTypes = {
     goalDate: string;
     deleteCard?: () => void;
     editCard?: () => void;
+    openModalDelete?: () => void;
+    openModalEdit?: () => void;
 }
 
 export default countryCardTypes

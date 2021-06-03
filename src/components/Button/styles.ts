@@ -12,6 +12,8 @@ export const Button = styled.button`
     outline: none;
     border-radius: 7px;
     font-size: 1rem;
+    transition: all .2s ease;
+    margin: 0 1rem;
 
     &:hover{
         opacity: .85;

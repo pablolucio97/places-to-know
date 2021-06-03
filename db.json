@@ -1,3 +1,43 @@
 {
-  "places": []
+  "places": [
+    {
+      "local": "",
+      "goalDate": "",
+      "countryFlag": "https://restcountries.eu/data/arg.svg",
+      "countryName": "Argentina",
+      "id": 1
+    },
+    {
+      "cardId": 0,
+      "countryName": "Armenia",
+      "countryFlag": "https://restcountries.eu/data/arm.svg",
+      "local": "asdadasd",
+      "goalDate": "11/2021",
+      "id": 2
+    },
+    {
+      "cardId": 0,
+      "countryName": "Aruba",
+      "countryFlag": "https://restcountries.eu/data/abw.svg",
+      "local": "sdfsdf",
+      "goalDate": "11/2021",
+      "id": 3
+    },
+    {
+      "cardId": 0,
+      "countryName": "Aruba",
+      "countryFlag": "https://restcountries.eu/data/abw.svg",
+      "local": "sdfsdf",
+      "goalDate": "11/2021",
+      "id": 4
+    },
+    {
+      "cardId": 0,
+      "countryName": "Azerbaijan",
+      "countryFlag": "https://restcountries.eu/data/aze.svg",
+      "local": "xcv",
+      "goalDate": "11/2021",
+      "id": 5
+    }
+  ]
 }
